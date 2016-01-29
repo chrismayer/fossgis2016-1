@@ -1,4 +1,4 @@
-WebGIS-Anwendungen erstellen mit der 3. Generation von GeoExt
+# WebGIS-Anwendungen erstellen mit der 3. Generation von GeoExt
 
 Der Workshop zeigt wie anspruchsvolle WebGIS-Anwendungen mit der neuesten Version des JavaScript-Frameworks GeoExt entwickelt werden können.
 
@@ -12,6 +12,6 @@ Der Workshop wird von den GeoExt-Kernentwicklern Marc Jansen und Christian Mayer
 
 Vorkenntnisse in JavaScript sind wünschenswert aber nicht zwingend erforderlich.
 
-[1]
-[2]
-[3]
+* [1] http://geoext.github.io/geoext3/, https://github.com/geoext/geoext3
+* [2] https://www.sencha.com/products/extjs/
+* [3] http://openlayers.org/

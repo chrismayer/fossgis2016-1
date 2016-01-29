@@ -8,7 +8,7 @@ Im Vortrag wird also die OpenSource-Bibliothek GeoExt3 vorgestellt und ein konkr
 
 Die Vortragenden Christian Mayer (meggsimum) und Marc Jansen (terrestris) sind beide Kernentwickler und Mitglieder des Projektsteuerungskommitees von GeoExt.
 
-[1] http://geoext.github.io/geoext3/, https://github.com/geoext/geoext3
-[2] https://www.sencha.com/products/extjs/
-[3] http://openlayers.org/
-[4] https://www.sencha.com/products/sencha-cmd/
+* [1] http://geoext.github.io/geoext3/, https://github.com/geoext/geoext3
+* [2] https://www.sencha.com/products/extjs/
+* [3] http://openlayers.org/
+* [4] https://www.sencha.com/products/sencha-cmd/
