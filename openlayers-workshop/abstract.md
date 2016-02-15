@@ -4,7 +4,7 @@
 
 OpenLayers 3 (der Nachfolger des weitverbreiteten OpenLayers 2) liegt seit Ende
 August 2014 in der Version 3.0.0 vor und der Workshop soll den Teilnehmern die
-aktuellste Version (derzeit v3.13) näher bringen.
+aktuellste Version (derzeit v3.13, zum Zeitpunkt des WS gegebenenfalls eine aktuellerer) näher bringen.
 
 Im Workshop, der von zwei Kernentwicklern des Projektes gehalten wird, werden
 die Teilnehmer selbst mit OpenLayers 3 entwickeln. Im Einzelnen werden wir uns
