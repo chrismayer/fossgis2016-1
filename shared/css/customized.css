@@ -124,7 +124,7 @@ span.nope {
 }
 
 .reveal section .highlight {
-  text-shadow: 0 0 20px orange
+  text-shadow: 0 0 20px red;
 }
 
 .reveal section .unhighlight {
@@ -152,4 +152,8 @@ span.nope {
 }
 .reveal section.author ul {
   /*max-width: 70%;*/
+}
+.reveal section blockquote footer {
+  font-size: 0.7em;
+  text-align: right;
 }
