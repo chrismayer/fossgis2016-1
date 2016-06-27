@@ -101,21 +101,26 @@ span.nope {
   text-align: left;
 }
 
-.reveal section a.twitter,.reveal section a.github {
+.reveal section a.twitter,
+.reveal section a.github,
+.reveal section a.email {
   display: inline;
   padding-left: 1.2em;
   background-repeat: no-repeat;
   background-position: left bottom;
-  /* background-size: contain; */
   background-size: 1.0em;
 }
 
 .reveal section a.github {
-  background-image: url("../img/github-logo-outline.png");
+  background-image: url("../img/github-logo.png");
 }
 
 .reveal section a.twitter {
-  background-image: url("../img/twitter-logo-outline.png");
+  background-image: url("../img/twitter-logo.png");
+}
+
+.reveal section a.email {
+  background-image: url("../img/mail-logo.png");
 }
 
 .reveal section .highlight {
@@ -139,12 +144,12 @@ span.nope {
   float: left;
   width: 33%
 }
-.reveal section.author img,
+
 .reveal section img.sideimage {
   float: right;
   clear: right;
   width: 25%
 }
 .reveal section.author ul {
-  max-width: 70%;
+  /*max-width: 70%;*/
 }
