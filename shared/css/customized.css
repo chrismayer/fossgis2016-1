@@ -157,3 +157,17 @@ span.nope {
   font-size: 0.7em;
   text-align: right;
 }
+.reveal section blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: -5px;
+  top: -25px;
+  color: #7a7a7a;
+}
+
+.reveal section blockquote {
+  box-shadow: none;
+  padding: 0.5em 1em;
+}
