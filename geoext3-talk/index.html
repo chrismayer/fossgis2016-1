@@ -214,16 +214,28 @@
           <ul class="fragment fade-in">
             <li>Kompletter rewrite nach v2.x</li>
             <li>Mobile from start</li>
-            <li>Unabhängig von …<ul>
-              <li>… Endgerät</li>
-              <li>… Browser</li>
-              <li>… Bibliothek</li>
-            </ul></li>
+            <li>Unabhängig von …
+              <ul>
+                <li>… Endgerät</li>
+                <li>… Browser</li>
+                <li>… Bibliothek</li>
+              </ul>
+            </li>
           </ul>
         </section>
 
+        <section
+          data-background-image="img/ol-desktop-composed.png"
+          data-background-size="80% auto">
+        </section>
+
+        <section
+          data-background-image="img/ol-iphone6-composed.png"
+          data-background-size="90% auto">
+        </section>
+
         <section>
-          <h1>…universal…</h1>
+          <h1>…universal.</h1>
         </section>
 
         <section>
@@ -231,12 +243,41 @@
         </section>
 
         <section>
-          <h2>Harmonisierung ExtJS / Sencha Touch</h2>
+          <h2>Zusammenführung ExtJS / Sencha Touch</h2>
           <ul>
             <li>Toolkits classic &amp; modern</li>
             <li>Build profiles</li>
             <li>Besseres Themeing (fashion)</li>
             <li>Model-View-Controller &amp; Model-View-ViewModel</li>
+            <li><code>Ext.Widget</code> … <code>Ext.list.Tree</code> </li>
+          </ul>
+        </section>
+
+        <section
+          data-background-image="img/desktop-classic-admin-dashboard-composed.png"
+          data-background-size="80% auto">
+        </section>
+
+        <section
+          data-background-image="img/iphone6-modern-admin-dashboard-composed.png"
+          data-background-size="90% auto">
+        </section>
+
+        <section>
+          <h1>…universal.</h1>
+        </section>
+
+        <section>
+          <h1>Universale<br />Applikationen</h1>
+        </section>
+
+        <section>
+          <h2>Ziel</h2>
+          <ul>
+            <li>Eine Codebasis => multiple builds</li>
+            <li>Weniger Reibungsverluste</li>
+            <li>Wiederverwendung von Code</li>
+            <li>UI weitestgehend abhängig von Endgerät</li>
           </ul>
         </section>
 
@@ -247,60 +288,99 @@
             though, <span class="highlight">developers may need
             to be creative</span> in order to produce logic that can span
             toolkits.
-            <footer>&mdash; <cite><a href="https://docs.sencha.com/extjs/6.0/application_architecture/developing_for_multiple_screens_and_environments.html">sencha.com, 27. Juni 2016</a></cite>
-              <br />Eig. Hervorhebung</footer>
+            <footer>
+              &mdash; <cite><a href="https://docs.sencha.com/extjs/6.0/application_architecture/developing_for_multiple_screens_and_environments.html">sencha.com, 27. Juni 2016</a></cite>
+              <br />Eig. Hervorhebung
+            </footer>
           </blockquote>
         </section>
 
-        <!--
-        Eine Folie
-
-        => MVVC Pattern
-        => Leitet über zu universal apps
-        -->
-
         <section>
-          <h1>Universale<br />Applikationen</h1>
+          <h2 class="force-natural-case">app.json &amp; sencha</h2>
+          <pre><code data-trim contenteditable>
+"builds": {
+    "classic": {
+        "toolkit": "classic",
+        "theme": "theme-triton"
+    },
+
+    "modern": {
+        "toolkit": "modern",
+        "theme": "theme-triton"
+    }
+}
+          </code></pre>
+          <pre><code data-trim contenteditable>
+$ sencha app build modern
+          </code></pre>
         </section>
 
-        <!--
-        Definition
-          * classic
-          * modern
-          * responsive
-          * write once / runs everywhere
-        MVVC teilweise wiederverwendbar
-        How-to: sencha
-          * app.json
-          * switch / detection
-          * multiple builds
+        <section
+          data-background-image="img/folder-structure.png"
+          data-background-size="auto 90%">
+        </section>
 
-        -->
+        <section>
+          <h2 class="force-natural-case">Profildetektion in index.html</h2>
+          <pre><code data-trim>
+Ext.beforeLoad = function (tags) {
+    var s = location.search,  // the query string (ex "?foo=1&bar")
+        profile;
+    // For testing look for "?classic" or "?modern" in the URL
+    // to override device detection default.
+    if (s.match(/\bclassic\b/)) {
+        profile = 'classic';
+    } else if (s.match(/\bmodern\b/)) {
+        profile = 'modern';
+    } else {
+        profile = tags.desktop ? 'classic' : 'modern';
+        // tag.phone, tags.cordova …
+    }
+
+    Ext.manifest = profile; // must match a build profile name
+};
+          </code></pre>
+        </section>
 
         <section>
           <h2>Universale Applikationen</h2>
           <h1>…mit GeoExt</h1>
         </section>
 
-        <!--
-        Was bedeutet dies für GeoExt?
+        <section>
+          <h2>Was bedeutet dies für GeoExt?</h2>
+          <ul>
+            <li>Korrekte Ableitungen in eigenen Klassen</li>
+            <li>Bsp. <code>GeoExt.component.Map</code></li>
+            <li>Wiederverendbar: alles außer <code>GeoExt.grid.column.Symbolizer</code></li>
+            <li>components, data-package (models und stores), utilities &amp; mixins</li>
+            <li>tree-Strukturen via models</li>
+          </ul>
+        </section>
 
-        * Korrekte Ableitungen
-          * Bsp. MapComponent
-          * Bsp. stores
-        * Ziel: Möglichst wenig im Wege stehen
-        -->
+        <section>
+          <h2>Nicht als package verwendbar</h2>
+          <pre><code data-trim>
+"classpath": [
+    "app",
+    "${toolkit.name}/src",
+    "packages/remote/GeoExt/src/component",
+    "packages/remote/GeoExt/src/data",
+    "packages/remote/GeoExt/src/mixin",
+    "packages/remote/GeoExt/src/util"
+]
+          </code></pre>
+          <p>
+            Globales <code>"requires": [ "GeoExt" ]</code> entfernen
+          </p>
+        </section>
 
         <section>
           <h1>Beispiel</h1>
         </section>
 
         <!--
-          Hello world mit code
-            * classic
-            * modern
-          Wiederverwendung eines Controllers (click / tap handler?)
-          Modern Geolocation Button
+        zwei screenies BfS
         -->
 
         <section>
